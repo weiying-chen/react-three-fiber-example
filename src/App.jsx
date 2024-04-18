@@ -1,19 +1,15 @@
 import React, { useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Box, OrbitControls } from "@react-three/drei";
+import { useGLTF, OrbitControls } from "@react-three/drei";
+import { Model } from './Model'
 
 const Scene = () => {
-  const boxRef = useRef();
-  useFrame((state, delta) => {
-    boxRef.current.rotation.y += 0.02;
-  });
+  // Use to execute custom animation logic or any continuous updates within the 3D scene on every frame
+  // useFrame(() => {});
 
   return (
     <>
-      <Box ref={boxRef} args={[1, 1, 1]} rotation={[0.5, 0, 0]}>
-        <meshNormalMaterial />
-      </Box>
-      <ambientLight />
+      <Model position={[0, 0, 0]} scale={0.2} />
     </>
   );
 };
